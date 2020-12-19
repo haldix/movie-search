@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import Navbar from './components/Navbar';
+import HomeScreen from './screens/HomeScreen';
+import MovieListScreen from './screens/MovieListScreen';
 function App() {
   return (
     <Router>
-      <div className='App'>
-        <h1>Hello World</h1>
-      </div>
+      <Navbar />
+      <Route path='/movielist' exact component={MovieListScreen} />
+      <Route path='/' exact component={HomeScreen} />
     </Router>
   );
 }
