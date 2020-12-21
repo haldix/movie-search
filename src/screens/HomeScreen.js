@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPerson } from '../actions/searchActions';
+import CardGrid from '../components/CardGrid';
 
 const HomeScreen = () => {
   const [name, setName] = useState('');
   const [searchName, setSearchName] = useState('');
   const search = useSelector((state) => state.search);
   const { loading, success, person } = search;
-  console.log(person);
+  // console.log(person);
   const dispatch = useDispatch();
 
   const nameHandler = (e) => {
@@ -23,7 +24,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <div>
+    <>
       <h1>Home Screen</h1>
       <form onSubmit={submitHandler}>
         <label htmlFor='name'>Search by Name</label>
@@ -37,14 +38,10 @@ const HomeScreen = () => {
       {person && person.results.length !== 0 && (
         <>
           <h2>Search Results for {searchName}</h2>
-          <ul>
-            {person.results.map((res) => (
-              <li key={res.id}>{res.name}</li>
-            ))}
-          </ul>
+          <CardGrid persons={person.results} />
         </>
       )}
-    </div>
+    </>
   );
 };
 
