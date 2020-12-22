@@ -1,20 +1,20 @@
 import React from 'react';
 import './ActorCard.scss';
+import noPhoto from '../images/no-image-available.png';
 
 const ActorCard = (props) => {
   const { id, name, profile_path } = props.actor;
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
+  const imgUrl = !profile_path ? noPhoto : `${baseUrl}${profile_path}`;
   return (
     <div className='actor-card'>
-      <p>{name}</p>
-      {!profile_path ? (
-        <p>Picture Unavailable</p>
-      ) : (
-        <figure>
-          <img src={`${baseUrl}${profile_path}`} alt={name} />
-        </figure>
-      )}
+      <figure>
+        <img src={imgUrl} alt={name} />
+      </figure>
+      <div className='card-info'>
+        <a href={id}>{name}</a>
+      </div>
     </div>
   );
 };

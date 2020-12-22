@@ -24,7 +24,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <>
+    <div className='container'>
       <h1>Home Screen</h1>
       <form onSubmit={submitHandler}>
         <label htmlFor='name'>Search by Name</label>
@@ -41,7 +41,7 @@ const HomeScreen = () => {
           <CardGrid persons={person.results} />
         </>
       )}
-    </>
+    </div>
   );
 };
 

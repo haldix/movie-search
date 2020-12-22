@@ -4,11 +4,11 @@ import './CardGrid.scss';
 
 const CardGrid = ({ persons }) => {
   return (
-    <div className='card-grid'>
+    <section className='card-grid'>
       {persons.map((actor) => (
         <ActorCard key={actor.id} actor={actor} />
       ))}
-    </div>
+    </section>
   );
 };
 
