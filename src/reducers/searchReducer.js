@@ -2,21 +2,25 @@ import {
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
   SEARCH_FAIL,
+  NEW_KEYWORDS,
 } from '../constants/searchConstants';
 
-export const searchReducer = (state = {}, action) => {
-  switch (action.type) {
+export const searchReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case NEW_KEYWORDS:
+      return { keywords: payload };
     case SEARCH_REQUEST:
-      return { loading: true };
+      return { ...state, loading: true };
     case SEARCH_SUCCESS:
       return {
+        ...state,
         loading: false,
         success: true,
-        person: action.payload,
+        person: payload,
       };
     case SEARCH_FAIL:
       return {
-        message: action.payload,
+        message: payload,
       };
     default:
       return state;

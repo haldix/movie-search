@@ -1,0 +1,35 @@
+.pagination {
+  margin: 1.5rem;
+}
+
+.pag-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.pag-item {
+  padding: 0.3em 0.5em;
+  margin-right: 0.1rem;
+  border-radius: 2px;
+
+  a {
+    font-weight: bold;
+  }
+
+  &.active {
+    background-color: #00f;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.pag-item.prev-next {
+  background-color: #9c9c9c;
+
+  a {
+    text-decoration: none;
+  }
+}

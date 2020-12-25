@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPerson } from '../actions/searchActions';
 import CardGrid from '../components/CardGrid';
+import Pagination from '../components/Pagination';
 
 const HomeScreen = () => {
   const [name, setName] = useState('');
@@ -32,15 +33,16 @@ const HomeScreen = () => {
         <button type='submit'>Submit</button>
       </form>
       {loading && <h2>LOADING...</h2>}
-      {person && person.results.length === 0 && (
+      {person && person.total_results === 0 && (
         <h2>No Results Found for {searchName}</h2>
       )}
-      {person && person.results.length !== 0 && (
+      {person && person.total_results !== 0 && (
         <>
           <h2>Search Results for {searchName}</h2>
           <CardGrid persons={person.results} />
         </>
       )}
+      {person && person.total_pages > 0 && <Pagination />}
     </div>
   );
 };
