@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { searchReducer } from './searchReducer';
+import { actorReducer } from './actorReducer';
 
 export default combineReducers({
-  search: searchReducer,
+  actorData: actorReducer,
 });

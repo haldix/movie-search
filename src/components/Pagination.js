@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { nextPage } from '../actions/searchActions';
+import { nextPage } from '../actions/actorActions';
 import './Pagination.scss';
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const search = useSelector((state) => state.search);
-  const { person, keywords } = search;
+  const actorData = useSelector((state) => state.actorData);
+  const { person, keywords } = actorData;
   const { page, total_pages } = person;
 
   const pageLinks = [];

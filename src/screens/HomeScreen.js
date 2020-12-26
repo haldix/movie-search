@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPerson } from '../actions/searchActions';
+import { getPerson } from '../actions/actorActions';
 import CardGrid from '../components/CardGrid';
 import Pagination from '../components/Pagination';
 
 const HomeScreen = () => {
   const [name, setName] = useState('');
   const [searchName, setSearchName] = useState('');
-  const search = useSelector((state) => state.search);
-  const { loading, success, person } = search;
+  const actorData = useSelector((state) => state.actorData);
+  const { loading, success, person } = actorData;
   // console.log(person);
   const dispatch = useDispatch();
 
