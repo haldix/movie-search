@@ -2,16 +2,22 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getActorDetails } from '../actions/actorActions';
 import noPhoto from '../images/no-image-available.png';
+import format from 'date-fns/format';
 
 const ActorScreen = ({ match }) => {
   const actorData = useSelector((state) => state.actorData);
-  console.log('actorData', actorData);
-  console.log('actorData.actor', actorData.actor);
+
   const {
     loading,
     error,
     actor: { biography, birthday, deathday, name, profile_path },
   } = actorData;
+
+  const formatDate = (date) => {
+    let fdate = new Date(`${date} 00:00`);
+    console.log(date, fdate);
+    return format(fdate, 'MMMM d, yyyy');
+  };
 
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
   const imgUrl = !profile_path ? noPhoto : `${baseUrl}${profile_path}`;
@@ -23,24 +29,24 @@ const ActorScreen = ({ match }) => {
   }, [dispatch, match]);
 
   return (
-    <div>
+    <div className='container'>
       <h1>Actor Details</h1>
       {loading ? (
         <h2>Loading...</h2>
       ) : error ? (
         <p>error</p>
       ) : (
-        <>
+        <div className='actor'>
           <figure>
             <img src={imgUrl} alt={name} />
-            <figcaption></figcaption>
+            <figcaption>{name}</figcaption>
           </figure>
           <p>
-            <span>Born: {birthday}</span>{' '}
-            {deathday && <span>Died: {deathday}</span>}
+            {birthday && <span>Born: {formatDate(birthday)}&nbsp;&nbsp;</span>}
+            {deathday && <span>Died: {formatDate(deathday)}</span>}
           </p>
           <p>{biography}</p>
-        </>
+        </div>
       )}
     </div>
   );
