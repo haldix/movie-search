@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getActorDetails } from '../actions/actorActions';
 import noPhoto from '../images/no-image-available.png';
 import format from 'date-fns/format';
+import './ActorScreen.scss';
 
 const ActorScreen = ({ match }) => {
   const actorData = useSelector((state) => state.actorData);
@@ -36,16 +37,16 @@ const ActorScreen = ({ match }) => {
       ) : error ? (
         <p>error</p>
       ) : (
-        <div className='actor'>
+        <div className='actor-details'>
           <figure>
             <img src={imgUrl} alt={name} />
-            <figcaption>{name}</figcaption>
           </figure>
-          <p>
+          <h2>{name}</h2>
+          <p className='birthday'>
             {birthday && <span>Born: {formatDate(birthday)}&nbsp;&nbsp;</span>}
             {deathday && <span>Died: {formatDate(deathday)}</span>}
           </p>
-          <p>{biography}</p>
+          <p className='bio'>{biography}</p>
         </div>
       )}
     </div>
