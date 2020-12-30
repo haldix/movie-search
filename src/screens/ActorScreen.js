@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getActorDetails } from '../actions/actorActions';
 import noPhoto from '../images/no-image-available.png';
 import format from 'date-fns/format';
-import './ActorScreen.scss';
+import './styles/ActorScreen.scss';
 
 const ActorScreen = ({ match }) => {
   const actorData = useSelector((state) => state.actorData);

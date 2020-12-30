@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieCard from './MovieCard';
-import './MovieGrid.scss';
+import './styles/MovieGrid.scss';
 
 const MovieGrid = ({ movies }) => {
   // Sort to push movies w/o image to back of array

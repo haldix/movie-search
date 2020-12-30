@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovieDetails } from '../actions/movieActions';
 import noPhoto from '../images/no-image-available.png';
-import './MovieScreen.scss';
+import './styles/MovieScreen.scss';
 
 const MovieScreen = ({ match }) => {
   const movieData = useSelector((state) => state.movieData);

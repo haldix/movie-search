@@ -4,13 +4,14 @@ import { getMovie } from '../actions/movieActions';
 import { nextPage } from '../actions/movieActions';
 import MovieGrid from '../components/MovieGrid';
 import Pagination from '../components/Pagination';
-import './MovieSearchScreen.scss';
+import Message from '../components/Message';
+import './styles/MovieSearchScreen.scss';
 
 const MovieSearchScreen = () => {
   const [title, setTitle] = useState('');
 
   const movieData = useSelector((state) => state.movieData);
-  const { loading, success, movies, keywords } = movieData;
+  const { loading, movies, keywords, message } = movieData;
   const dispatch = useDispatch();
 
   const titleHandler = (e) => {
@@ -35,6 +36,7 @@ const MovieSearchScreen = () => {
         </div>
       </form>
       {loading && <h2>LOADING...</h2>}
+      {message && <Message message={message} />}
       {movies && movies.total_results === 0 && (
         <h2>No Results Found for {keywords.replace('+', ' ')}</h2>
       )}

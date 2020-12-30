@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPerson } from '../actions/actorActions';
 import CardGrid from '../components/CardGrid';
 import Pagination from '../components/Pagination';
+import Message from '../components/Message';
 import { nextPage } from '../actions/actorActions';
-import './ActorSearchScreen.scss';
+import './styles/ActorSearchScreen.scss';
 
 const ActorSearchScreen = () => {
   const [name, setName] = useState('');
 
   const actorData = useSelector((state) => state.actorData);
-  const { loading, success, person, keywords } = actorData;
-
+  const { loading, person, keywords, message } = actorData;
   const dispatch = useDispatch();
 
   const nameHandler = (e) => {
@@ -36,6 +36,7 @@ const ActorSearchScreen = () => {
         </div>
       </form>
       {loading && <h2>LOADING...</h2>}
+      {message && <Message message={message} />}
       {person && person.total_results === 0 && (
         <h2>No Results Found for {keywords.replace('+', ' ')}</h2>
       )}

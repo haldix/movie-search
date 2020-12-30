@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import './Pagination.scss';
+import './styles/Pagination.scss';
 
 const Pagination = ({ total_pages, keywords, page, nextPage }) => {
   // console.log(total_pages, page, keywords, nextPage);

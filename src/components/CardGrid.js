@@ -1,6 +1,6 @@
 import React from 'react';
 import ActorCard from './ActorCard';
-import './CardGrid.scss';
+import './styles/CardGrid.scss';
 
 const CardGrid = ({ persons }) => {
   // Sort to push actors w/o image to back of array

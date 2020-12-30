@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './MovieCard.scss';
+import './styles/MovieCard.scss';
 import noPhoto from '../images/no-image-available.png';
 
 const MovieCard = (props) => {
@@ -10,12 +10,14 @@ const MovieCard = (props) => {
   const imgUrl = !poster_path ? noPhoto : `${baseUrl}${poster_path}`;
   return (
     <div className='movie-card'>
-      <figure>
-        <img src={imgUrl} alt={title} />
-      </figure>
-      <div className='card-info'>
-        <Link to={`/movie/${id}`}>{title}</Link>
-      </div>
+      <Link to={`/movie/${id}`}>
+        <figure>
+          <img src={imgUrl} alt={title} />
+        </figure>
+        <div className='card-info'>
+          <p className='title'>{title}</p>
+        </div>
+      </Link>
     </div>
   );
 };

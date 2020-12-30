@@ -18,7 +18,6 @@ export const actorReducer = (state = { actor: {} }, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        success: true,
         person: payload,
       };
     case ACTOR_SEARCH_FAIL:
@@ -31,7 +30,6 @@ export const actorReducer = (state = { actor: {} }, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        success: true,
         actor: payload,
       };
     case ACTOR_DETAILS_FAIL:
