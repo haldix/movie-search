@@ -7,11 +7,10 @@ import './HomeScreen.scss';
 
 const HomeScreen = () => {
   const [name, setName] = useState('');
-  const [searchName, setSearchName] = useState('');
 
   const actorData = useSelector((state) => state.actorData);
-  const { loading, success, person } = actorData;
-  // console.log(person);
+  const { loading, success, person, keywords } = actorData;
+
   const dispatch = useDispatch();
 
   const nameHandler = (e) => {
@@ -22,7 +21,6 @@ const HomeScreen = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(getPerson(name));
-    setSearchName(name);
     setName('');
   };
 
@@ -38,11 +36,11 @@ const HomeScreen = () => {
       </form>
       {loading && <h2>LOADING...</h2>}
       {person && person.total_results === 0 && (
-        <h2>No Results Found for {searchName}</h2>
+        <h2>No Results Found for {keywords.replace('+', ' ')}</h2>
       )}
       {person && person.total_results !== 0 && (
         <>
-          <h2>Search Results for {searchName}</h2>
+          <h2>Search Results for {keywords.replace('+', ' ')}</h2>
           <CardGrid persons={person.results} />
         </>
       )}
