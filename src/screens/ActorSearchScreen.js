@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPerson } from '../actions/actorActions';
 import CardGrid from '../components/CardGrid';
 import Pagination from '../components/Pagination';
-import './HomeScreen.scss';
+import './ActorSearchScreen.scss';
 
-const HomeScreen = () => {
+const ActorSearchScreen = () => {
   const [name, setName] = useState('');
 
   const actorData = useSelector((state) => state.actorData);
@@ -26,7 +26,7 @@ const HomeScreen = () => {
 
   return (
     <div className='container'>
-      <h1>Home Screen</h1>
+      <h1>Actor Search Screen</h1>
       <form className='form-search' onSubmit={submitHandler}>
         <label htmlFor='name'>Search for Actor by Name</label>
         <div className='input-group'>
@@ -49,4 +49,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default ActorSearchScreen;

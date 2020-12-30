@@ -6,10 +6,10 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
       <NavLink to='/' exact>
-        HOME
+        ACTOR SEARCH
       </NavLink>
-      <NavLink to='/movielist' exact>
-        MOVIE LIST
+      <NavLink to='/movie' exact>
+        MOVIE SEARCH
       </NavLink>
     </nav>
   );
