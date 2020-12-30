@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getPerson } from '../actions/actorActions';
 import CardGrid from '../components/CardGrid';
 import Pagination from '../components/Pagination';
+import { nextPage } from '../actions/actorActions';
 import './ActorSearchScreen.scss';
 
 const ActorSearchScreen = () => {
@@ -44,7 +45,14 @@ const ActorSearchScreen = () => {
           <CardGrid persons={person.results} />
         </>
       )}
-      {person && person.total_pages > 0 && <Pagination />}
+      {person && person.total_pages > 0 && (
+        <Pagination
+          keywords={keywords}
+          total_pages={person.total_pages}
+          page={person.page}
+          nextPage={nextPage}
+        />
+      )}
     </div>
   );
 };

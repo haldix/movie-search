@@ -1,4 +1,4 @@
-.actor-details {
+.movie-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,13 +16,13 @@
     margin-top: 1rem;
   }
 
-  .birthday {
-    margin-bottom: 0.7rem;
-    font-weight: bold;
+  .date {
     font-style: italic;
+    font-size: 0.85em;
   }
 
-  .bio {
+  .overview {
+    max-width: 70ch;
     padding: 0 2rem 2rem;
   }
 }

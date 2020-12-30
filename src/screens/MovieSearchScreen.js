@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovie } from '../actions/movieActions';
+import { nextPage } from '../actions/movieActions';
 import MovieGrid from '../components/MovieGrid';
 import Pagination from '../components/Pagination';
-// import './MovieScreen.scss';
+import './MovieSearchScreen.scss';
 
 const MovieSearchScreen = () => {
   const [title, setTitle] = useState('');
 
   const movieData = useSelector((state) => state.movieData);
   const { loading, success, movies, keywords } = movieData;
-  console.log(movies);
   const dispatch = useDispatch();
 
   const titleHandler = (e) => {
@@ -44,7 +44,14 @@ const MovieSearchScreen = () => {
           <MovieGrid movies={movies.results} />
         </>
       )}
-      {/* {movies && movies.total_pages > 0 && <Pagination />} */}
+      {movies && movies.total_pages > 0 && (
+        <Pagination
+          keywords={keywords}
+          total_pages={movies.total_pages}
+          page={movies.page}
+          nextPage={nextPage}
+        />
+      )}
     </div>
   );
 };

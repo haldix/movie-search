@@ -1,13 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { nextPage } from '../actions/actorActions';
+import { useDispatch } from 'react-redux';
 import './Pagination.scss';
 
-const Pagination = () => {
+const Pagination = ({ total_pages, keywords, page, nextPage }) => {
+  // console.log(total_pages, page, keywords, nextPage);
   const dispatch = useDispatch();
-  const actorData = useSelector((state) => state.actorData);
-  const { person, keywords } = actorData;
-  const { page, total_pages } = person;
+  // const actorData = useSelector((state) => state.actorData);
+  // const { person, keywords } = actorData;
+  // const { page, total_pages } = person;
 
   const pageLinks = [];
   // value of  5 returns first 100 results from API, could use prop

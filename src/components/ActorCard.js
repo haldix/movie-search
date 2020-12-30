@@ -4,7 +4,7 @@ import './ActorCard.scss';
 import noPhoto from '../images/no-image-available.png';
 
 const ActorCard = (props) => {
-  const { id, name, profile_path, known_for } = props.actor;
+  const { id, name, profile_path } = props.actor;
   // console.log('known_for', known_for);
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
 

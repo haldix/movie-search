@@ -39,10 +39,9 @@ export const nextPage = (keywords, page) => async (dispatch) => {
   try {
     dispatch({ type: MOVIE_SEARCH_REQUEST });
 
-    const url = `https://api.themoviedb.org/3/search/movie?query=${keywords}&page=${page}&api_key=${API_KEY}&language=en-US&page=1&include_adult=false`;
+    const url = `https://api.themoviedb.org/3/search/movie?query=${keywords}&page=${page}&api_key=${API_KEY}&language=en-US&include_adult=false`;
 
     const { data } = await axios.get(url);
-
     dispatch({ type: MOVIE_SEARCH_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

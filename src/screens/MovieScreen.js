@@ -44,7 +44,8 @@ const MovieScreen = ({ match }) => {
           </figure>
           {title && release_date && (
             <h2>
-              {title}&nbsp;&nbsp;({formatDate(release_date)})
+              {title}&nbsp;&nbsp;
+              <span className='date'>({formatDate(release_date)})</span>
             </h2>
           )}
 
