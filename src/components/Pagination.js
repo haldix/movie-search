@@ -1,13 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './styles/Pagination.scss';
 
 const Pagination = ({ total_pages, keywords, page, nextPage }) => {
-  // console.log(total_pages, page, keywords, nextPage);
   const dispatch = useDispatch();
-  // const actorData = useSelector((state) => state.actorData);
-  // const { person, keywords } = actorData;
-  // const { page, total_pages } = person;
 
   const pageLinks = [];
   // value of  5 returns first 100 results from API, could use prop
@@ -17,14 +13,20 @@ const Pagination = ({ total_pages, keywords, page, nextPage }) => {
     let active = i === page ? 'active' : '';
     pageLinks.push(
       <li
-        className={`pag-item ${active}`}
+        className='pag-item'
         key={i}
         onClick={() => dispatch(nextPage(keywords, i))}
       >
-        <a href='#!'>{i}</a>
+        <a href='#!' className={`${active}`}>
+          {i}
+        </a>
       </li>
     );
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [page]);
 
   return (
     <section className='pagination'>
