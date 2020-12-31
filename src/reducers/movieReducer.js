@@ -31,7 +31,6 @@ export const movieReducer = (state = { movie: {} }, { type, payload }) => {
       return {
         ...state,
         loading: false,
-        success: true,
         movie: payload,
       };
     case MOVIE_DETAILS_FAIL:
